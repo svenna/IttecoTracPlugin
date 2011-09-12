@@ -740,7 +740,7 @@ class IttecoRoadmapModule(RoadmapModule):
             tickets = apply_ticket_permissions(self.env, req, tickets)
             stat = SelectionTicketGroupStatsProvider(self.env).get_ticket_group_stats(tickets, calc_on)
             stats.append(
-                milestone_stats_data(
+                milestone_stats_data(self.env,
                     req, stat, [m.name for m in _get_milestone_with_all_kids(milestone)]))
 
         if requested_fmt=='json':
